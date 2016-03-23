@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ACA3E5881CA24DDC004E57DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3E5871CA24DDC004E57DB /* AppDelegate.swift */; };
+		ACA3E58A1CA24DDC004E57DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3E5891CA24DDC004E57DB /* ViewController.swift */; };
+		ACA3E58D1CA24DDC004E57DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA3E58B1CA24DDC004E57DB /* Main.storyboard */; };
+		ACA3E58F1CA24DDC004E57DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA3E58E1CA24DDC004E57DB /* Assets.xcassets */; };
+		ACA3E5921CA24DDC004E57DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA3E5901CA24DDC004E57DB /* LaunchScreen.storyboard */; };
+		ACA3E59D1CA24DDC004E57DB /* Security_Tag_DetacherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3E59C1CA24DDC004E57DB /* Security_Tag_DetacherTests.swift */; };
+		ACA3E5A81CA24DDC004E57DB /* Security_Tag_DetacherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3E5A71CA24DDC004E57DB /* Security_Tag_DetacherUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ACA3E5991CA24DDC004E57DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACA3E57C1CA24DDC004E57DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACA3E5831CA24DDC004E57DB;
+			remoteInfo = "Security Tag Detacher";
+		};
+		ACA3E5A41CA24DDC004E57DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACA3E57C1CA24DDC004E57DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACA3E5831CA24DDC004E57DB;
+			remoteInfo = "Security Tag Detacher";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ACA3E5841CA24DDC004E57DB /* Security Tag Detacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Security Tag Detacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACA3E5871CA24DDC004E57DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ACA3E5891CA24DDC004E57DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ACA3E58C1CA24DDC004E57DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ACA3E58E1CA24DDC004E57DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACA3E5911CA24DDC004E57DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ACA3E5931CA24DDC004E57DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACA3E5981CA24DDC004E57DB /* Security Tag DetacherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Security Tag DetacherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACA3E59C1CA24DDC004E57DB /* Security_Tag_DetacherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security_Tag_DetacherTests.swift; sourceTree = "<group>"; };
+		ACA3E59E1CA24DDC004E57DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACA3E5A31CA24DDC004E57DB /* Security Tag DetacherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Security Tag DetacherUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACA3E5A71CA24DDC004E57DB /* Security_Tag_DetacherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security_Tag_DetacherUITests.swift; sourceTree = "<group>"; };
+		ACA3E5A91CA24DDC004E57DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACA3E5811CA24DDC004E57DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACA3E5951CA24DDC004E57DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACA3E5A01CA24DDC004E57DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ACA3E57B1CA24DDC004E57DB = {
+			isa = PBXGroup;
+			children = (
+				ACA3E5861CA24DDC004E57DB /* Security Tag Detacher */,
+				ACA3E59B1CA24DDC004E57DB /* Security Tag DetacherTests */,
+				ACA3E5A61CA24DDC004E57DB /* Security Tag DetacherUITests */,
+				ACA3E5851CA24DDC004E57DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACA3E5851CA24DDC004E57DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3E5841CA24DDC004E57DB /* Security Tag Detacher.app */,
+				ACA3E5981CA24DDC004E57DB /* Security Tag DetacherTests.xctest */,
+				ACA3E5A31CA24DDC004E57DB /* Security Tag DetacherUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACA3E5861CA24DDC004E57DB /* Security Tag Detacher */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3E5871CA24DDC004E57DB /* AppDelegate.swift */,
+				ACA3E5891CA24DDC004E57DB /* ViewController.swift */,
+				ACA3E58B1CA24DDC004E57DB /* Main.storyboard */,
+				ACA3E58E1CA24DDC004E57DB /* Assets.xcassets */,
+				ACA3E5901CA24DDC004E57DB /* LaunchScreen.storyboard */,
+				ACA3E5931CA24DDC004E57DB /* Info.plist */,
+			);
+			path = "Security Tag Detacher";
+			sourceTree = "<group>";
+		};
+		ACA3E59B1CA24DDC004E57DB /* Security Tag DetacherTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3E59C1CA24DDC004E57DB /* Security_Tag_DetacherTests.swift */,
+				ACA3E59E1CA24DDC004E57DB /* Info.plist */,
+			);
+			path = "Security Tag DetacherTests";
+			sourceTree = "<group>";
+		};
+		ACA3E5A61CA24DDC004E57DB /* Security Tag DetacherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3E5A71CA24DDC004E57DB /* Security_Tag_DetacherUITests.swift */,
+				ACA3E5A91CA24DDC004E57DB /* Info.plist */,
+			);
+			path = "Security Tag DetacherUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACA3E5831CA24DDC004E57DB /* Security Tag Detacher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACA3E5AC1CA24DDC004E57DB /* Build configuration list for PBXNativeTarget "Security Tag Detacher" */;
+			buildPhases = (
+				ACA3E5801CA24DDC004E57DB /* Sources */,
+				ACA3E5811CA24DDC004E57DB /* Frameworks */,
+				ACA3E5821CA24DDC004E57DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Security Tag Detacher";
+			productName = "Security Tag Detacher";
+			productReference = ACA3E5841CA24DDC004E57DB /* Security Tag Detacher.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ACA3E5971CA24DDC004E57DB /* Security Tag DetacherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACA3E5AF1CA24DDC004E57DB /* Build configuration list for PBXNativeTarget "Security Tag DetacherTests" */;
+			buildPhases = (
+				ACA3E5941CA24DDC004E57DB /* Sources */,
+				ACA3E5951CA24DDC004E57DB /* Frameworks */,
+				ACA3E5961CA24DDC004E57DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACA3E59A1CA24DDC004E57DB /* PBXTargetDependency */,
+			);
+			name = "Security Tag DetacherTests";
+			productName = "Security Tag DetacherTests";
+			productReference = ACA3E5981CA24DDC004E57DB /* Security Tag DetacherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ACA3E5A21CA24DDC004E57DB /* Security Tag DetacherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACA3E5B21CA24DDC004E57DB /* Build configuration list for PBXNativeTarget "Security Tag DetacherUITests" */;
+			buildPhases = (
+				ACA3E59F1CA24DDC004E57DB /* Sources */,
+				ACA3E5A01CA24DDC004E57DB /* Frameworks */,
+				ACA3E5A11CA24DDC004E57DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACA3E5A51CA24DDC004E57DB /* PBXTargetDependency */,
+			);
+			name = "Security Tag DetacherUITests";
+			productName = "Security Tag DetacherUITests";
+			productReference = ACA3E5A31CA24DDC004E57DB /* Security Tag DetacherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACA3E57C1CA24DDC004E57DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "M E 440W Tyco Group";
+				TargetAttributes = {
+					ACA3E5831CA24DDC004E57DB = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					ACA3E5971CA24DDC004E57DB = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = ACA3E5831CA24DDC004E57DB;
+					};
+					ACA3E5A21CA24DDC004E57DB = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = ACA3E5831CA24DDC004E57DB;
+					};
+				};
+			};
+			buildConfigurationList = ACA3E57F1CA24DDC004E57DB /* Build configuration list for PBXProject "Security Tag Detacher" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACA3E57B1CA24DDC004E57DB;
+			productRefGroup = ACA3E5851CA24DDC004E57DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACA3E5831CA24DDC004E57DB /* Security Tag Detacher */,
+				ACA3E5971CA24DDC004E57DB /* Security Tag DetacherTests */,
+				ACA3E5A21CA24DDC004E57DB /* Security Tag DetacherUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACA3E5821CA24DDC004E57DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACA3E5921CA24DDC004E57DB /* LaunchScreen.storyboard in Resources */,
+				ACA3E58F1CA24DDC004E57DB /* Assets.xcassets in Resources */,
+				ACA3E58D1CA24DDC004E57DB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACA3E5961CA24DDC004E57DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACA3E5A11CA24DDC004E57DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACA3E5801CA24DDC004E57DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACA3E58A1CA24DDC004E57DB /* ViewController.swift in Sources */,
+				ACA3E5881CA24DDC004E57DB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACA3E5941CA24DDC004E57DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACA3E59D1CA24DDC004E57DB /* Security_Tag_DetacherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACA3E59F1CA24DDC004E57DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACA3E5A81CA24DDC004E57DB /* Security_Tag_DetacherUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACA3E59A1CA24DDC004E57DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACA3E5831CA24DDC004E57DB /* Security Tag Detacher */;
+			targetProxy = ACA3E5991CA24DDC004E57DB /* PBXContainerItemProxy */;
+		};
+		ACA3E5A51CA24DDC004E57DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACA3E5831CA24DDC004E57DB /* Security Tag Detacher */;
+			targetProxy = ACA3E5A41CA24DDC004E57DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ACA3E58B1CA24DDC004E57DB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACA3E58C1CA24DDC004E57DB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ACA3E5901CA24DDC004E57DB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACA3E5911CA24DDC004E57DB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ACA3E5AA1CA24DDC004E57DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ACA3E5AB1CA24DDC004E57DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACA3E5AD1CA24DDC004E57DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Security Tag Detacher/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.me440w.tyco.Security-Tag-Detacher";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ACA3E5AE1CA24DDC004E57DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Security Tag Detacher/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.me440w.tyco.Security-Tag-Detacher";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		ACA3E5B01CA24DDC004E57DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Security Tag DetacherTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.me440w.tyco.Security-Tag-DetacherTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Security Tag Detacher.app/Security Tag Detacher";
+			};
+			name = Debug;
+		};
+		ACA3E5B11CA24DDC004E57DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Security Tag DetacherTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.me440w.tyco.Security-Tag-DetacherTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Security Tag Detacher.app/Security Tag Detacher";
+			};
+			name = Release;
+		};
+		ACA3E5B31CA24DDC004E57DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Security Tag DetacherUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.me440w.tyco.Security-Tag-DetacherUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Security Tag Detacher";
+			};
+			name = Debug;
+		};
+		ACA3E5B41CA24DDC004E57DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Security Tag DetacherUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.me440w.tyco.Security-Tag-DetacherUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Security Tag Detacher";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACA3E57F1CA24DDC004E57DB /* Build configuration list for PBXProject "Security Tag Detacher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACA3E5AA1CA24DDC004E57DB /* Debug */,
+				ACA3E5AB1CA24DDC004E57DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACA3E5AC1CA24DDC004E57DB /* Build configuration list for PBXNativeTarget "Security Tag Detacher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACA3E5AD1CA24DDC004E57DB /* Debug */,
+				ACA3E5AE1CA24DDC004E57DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ACA3E5AF1CA24DDC004E57DB /* Build configuration list for PBXNativeTarget "Security Tag DetacherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACA3E5B01CA24DDC004E57DB /* Debug */,
+				ACA3E5B11CA24DDC004E57DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ACA3E5B21CA24DDC004E57DB /* Build configuration list for PBXNativeTarget "Security Tag DetacherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACA3E5B31CA24DDC004E57DB /* Debug */,
+				ACA3E5B41CA24DDC004E57DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACA3E57C1CA24DDC004E57DB /* Project object */;
+}
