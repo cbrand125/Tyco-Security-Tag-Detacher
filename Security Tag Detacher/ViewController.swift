@@ -20,6 +20,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Set up the video recording
         let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         do {
             let input: AnyObject! = try AVCaptureDeviceInput(device: captureDevice)
@@ -44,6 +45,13 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             print("\(nsError).localizedDescription)")
             return
         }
+        
+        //Set up the QR code detection
+        qrCodeFrameView = UIView()
+        qrCodeFrameView?.layer.borderColor = UIColor.greenColor().CGColor
+        qrCodeFrameView?.layer.borderWidth = 2
+        view.addSubview(qrCodeFrameView!)
+        view.bringSubviewToFront(qrCodeFrameView!)
     }
 
     override func didReceiveMemoryWarning() {
