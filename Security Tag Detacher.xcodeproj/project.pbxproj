@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A8BD1411CAA3BD4005ADD3D /* BLESignalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8BD1401CAA3BD4005ADD3D /* BLESignalViewController.swift */; };
+		9A8BD1441CAA4AAD005ADD3D /* BTDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8BD1421CAA4AAC005ADD3D /* BTDiscovery.swift */; };
+		9A8BD1451CAA4AAD005ADD3D /* BTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8BD1431CAA4AAD005ADD3D /* BTService.swift */; };
 		ACA3E5881CA24DDC004E57DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3E5871CA24DDC004E57DB /* AppDelegate.swift */; };
 		ACA3E58A1CA24DDC004E57DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3E5891CA24DDC004E57DB /* ViewController.swift */; };
 		ACA3E58D1CA24DDC004E57DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA3E58B1CA24DDC004E57DB /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A8BD1401CAA3BD4005ADD3D /* BLESignalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLESignalViewController.swift; sourceTree = "<group>"; };
+		9A8BD1421CAA4AAC005ADD3D /* BTDiscovery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTDiscovery.swift; sourceTree = "<group>"; };
+		9A8BD1431CAA4AAD005ADD3D /* BTService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTService.swift; sourceTree = "<group>"; };
 		ACA3E5841CA24DDC004E57DB /* Security Tag Detacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Security Tag Detacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA3E5871CA24DDC004E57DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA3E5891CA24DDC004E57DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,9 @@
 				ACA3E58E1CA24DDC004E57DB /* Assets.xcassets */,
 				ACA3E5901CA24DDC004E57DB /* LaunchScreen.storyboard */,
 				ACA3E5931CA24DDC004E57DB /* Info.plist */,
+				9A8BD1421CAA4AAC005ADD3D /* BTDiscovery.swift */,
+				9A8BD1431CAA4AAD005ADD3D /* BTService.swift */,
+				9A8BD1401CAA3BD4005ADD3D /* BLESignalViewController.swift */,
 			);
 			path = "Security Tag Detacher";
 			sourceTree = "<group>";
@@ -257,6 +266,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACA3E58A1CA24DDC004E57DB /* ViewController.swift in Sources */,
+				9A8BD1411CAA3BD4005ADD3D /* BLESignalViewController.swift in Sources */,
+				9A8BD1451CAA4AAD005ADD3D /* BTService.swift in Sources */,
+				9A8BD1441CAA4AAD005ADD3D /* BTDiscovery.swift in Sources */,
 				ACA3E5881CA24DDC004E57DB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +496,7 @@
 				ACA3E5AE1CA24DDC004E57DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACA3E5AF1CA24DDC004E57DB /* Build configuration list for PBXNativeTarget "Security Tag DetacherTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +505,7 @@
 				ACA3E5B11CA24DDC004E57DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACA3E5B21CA24DDC004E57DB /* Build configuration list for PBXNativeTarget "Security Tag DetacherUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +514,7 @@
 				ACA3E5B41CA24DDC004E57DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,8 +17,26 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "BLESignallerSegue" {
+            if let vc = segue.destinationViewController as? BLESignalViewController {
+                if let message = QRMessageLabel.text {
+                    vc.QRValue = message
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        QRMessageLabel.text = "No QR code is detected"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //TESTING
+        QRMessageLabel.text = "Shirt"
+        performSegueWithIdentifier("BLESignallerSegue", sender: self)
         
         //Set up the video recording
         let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
@@ -79,6 +97,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             
             if metadataObj.stringValue != nil {
                 QRMessageLabel.text = metadataObj.stringValue
+                performSegueWithIdentifier("BLESignallerSegue", sender: self)
             }
         }
     }

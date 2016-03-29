@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mj7-il-tz5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -32,12 +32,73 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Y0N-yA-cUD" secondAttribute="bottom" id="dwL-mk-byY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="DCP-AT-yjV"/>
                     <connections>
                         <outlet property="QRMessageLabel" destination="Y0N-yA-cUD" id="q6O-ls-lRj"/>
+                        <segue destination="yDm-9L-Mls" kind="show" identifier="BLESignallerSegue" id="VMF-qi-tSn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="936" y="397"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oIO-1Q-OIP">
+            <objects>
+                <navigationController id="mj7-il-tz5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="haZ-Ft-rKq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="afq-4q-KsQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Beg-eV-6jJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="234" y="397"/>
+        </scene>
+        <!--Signal View Controller-->
+        <scene sceneID="G32-25-8Qw">
+            <objects>
+                <viewController storyboardIdentifier="BLESignaller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yDm-9L-Mls" customClass="BLESignalViewController" customModule="Security_Tag_Detacher" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HGF-9d-amj"/>
+                        <viewControllerLayoutGuide type="bottom" id="IZh-3k-fbF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QYA-TD-x93">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4f-DX-56R">
+                                <rect key="frame" x="279" y="290" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQT-38-Dyw">
+                                <rect key="frame" x="275" y="555" width="50" height="30"/>
+                                <state key="normal" title="Detach"/>
+                                <connections>
+                                    <action selector="detachButtonAction:" destination="yDm-9L-Mls" eventType="touchUpInside" id="EDK-Ue-fgb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y4f-DX-56R" firstAttribute="centerY" secondItem="QYA-TD-x93" secondAttribute="centerY" id="TaJ-qr-FIC"/>
+                            <constraint firstItem="IZh-3k-fbF" firstAttribute="top" secondItem="iQT-38-Dyw" secondAttribute="bottom" constant="15" id="YSf-Ww-MOh"/>
+                            <constraint firstItem="y4f-DX-56R" firstAttribute="centerX" secondItem="QYA-TD-x93" secondAttribute="centerX" id="hyd-fr-xz5"/>
+                            <constraint firstItem="iQT-38-Dyw" firstAttribute="centerX" secondItem="QYA-TD-x93" secondAttribute="centerX" id="iQ7-Xn-mcC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="QRLabel" destination="y4f-DX-56R" id="VEI-MQ-B8L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ixd-u4-c31" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1615" y="397"/>
         </scene>
     </scenes>
 </document>
