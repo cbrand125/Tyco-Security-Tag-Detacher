@@ -38,7 +38,7 @@ class BLESignalViewController: UIViewController {
     }
     
     @IBAction func detachButtonAction(sender: UIButton) {
-        
+        sendMessage(authorize())
     }
     
     func connectionChanged(notification: NSNotification) {
@@ -49,8 +49,6 @@ class BLESignalViewController: UIViewController {
             // Set image based on connection status
             if let isConnected: Bool = userInfo["isConnected"] {
                 if isConnected {
-                    // Send current slider position
-                    self.sendMessage(self.authorize())
                 }
             }
         });
