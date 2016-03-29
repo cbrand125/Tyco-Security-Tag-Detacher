@@ -19,6 +19,7 @@ class BLESignalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        QRLabel.text = QRValue
         
         // Watch Bluetooth connection
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BLESignalViewController.connectionChanged(_:)), name: BLEServiceChangedStatusNotification, object: nil)
