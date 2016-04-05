@@ -29,6 +29,12 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
         }
     }
     
+    func stopScanning() {
+        if let central = centralManager {
+            central.stopScan()
+        }
+    }
+    
     var bleService: BTService? {
         didSet {
             if let service = self.bleService {
@@ -84,6 +90,9 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
     
     // MARK: - Private
     func clearDevices() {
+        if let peripheral = self.peripheralBLE {
+            centralManager?.cancelPeripheralConnection(peripheral)
+        }
         self.bleService = nil
         self.peripheralBLE = nil
     }
