@@ -19,7 +19,7 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
   override init() {
     super.init()
     
-    let centralQueue = dispatch_queue_create("com.raywenderlich", DISPATCH_QUEUE_SERIAL)
+    let centralQueue = dispatch_queue_create("com.me440w.tyco", DISPATCH_QUEUE_SERIAL)
     centralManager = CBCentralManager(delegate: self, queue: centralQueue)
   }
   
@@ -38,7 +38,6 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
   }
   
   // MARK: - CBCentralManagerDelegate
-  
   func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
     // Be sure to retain the peripheral or it will fail during connection.
     
@@ -84,7 +83,6 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
   }
   
   // MARK: - Private
-  
   func clearDevices() {
     self.bleService = nil
     self.peripheralBLE = nil

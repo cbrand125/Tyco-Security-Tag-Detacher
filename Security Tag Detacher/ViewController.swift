@@ -29,14 +29,11 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     override func viewWillAppear(animated: Bool) {
         QRMessageLabel.text = "No QR code is detected"
+        captureSession?.startRunning()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //TESTING
-        QRMessageLabel.text = "Shirt"
-        performSegueWithIdentifier("BLESignallerSegue", sender: self)
         
         //Set up the video recording
         let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
@@ -96,6 +93,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barCodeObject.bounds;
             
             if metadataObj.stringValue != nil {
+                captureSession?.stopRunning()
                 QRMessageLabel.text = metadataObj.stringValue
                 performSegueWithIdentifier("BLESignallerSegue", sender: self)
             }

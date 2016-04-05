@@ -21,21 +21,20 @@ class BLESignalViewController: UIViewController {
         super.viewDidLoad()
         QRLabel.text = QRValue
         
-        // Watch Bluetooth connection
+        //watch Bluetooth connection
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BLESignalViewController.connectionChanged(_:)), name: BLEServiceChangedStatusNotification, object: nil)
         
-        // Start the Bluetooth discovery process
-        btDiscoverySharedInstance
+        //start the Bluetooth discovery process
+        btDiscoverySharedInstance.startScanning()
     }
     
     func authorize() -> UInt8 {
+        //normally, this will check database/JSON file for permission on QR code
         return UInt8(10)
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: BLEServiceChangedStatusNotification, object: nil)
-        
-        QRLabel.text = QRValue
     }
     
     @IBAction func detachButtonAction(sender: UIButton) {
@@ -47,7 +46,6 @@ class BLESignalViewController: UIViewController {
         let userInfo = notification.userInfo as! [String: Bool]
         
         dispatch_async(dispatch_get_main_queue(), {
-            // Set image based on connection status
             if let isConnected: Bool = userInfo["isConnected"] {
                 if isConnected {
                 }
@@ -60,15 +58,9 @@ class BLESignalViewController: UIViewController {
             return
         }
         
-        // Validate value
-        if message == lastMessage {
-            return
-        }
-        
-        // Send position to BLE Shield (if service exists and is connected)
+        //send message to Arduino
         if let bleService = btDiscoverySharedInstance.bleService {
             bleService.writeMessage(message)
-            lastMessage = message
             
             // Start delay timer
             allowTX = false

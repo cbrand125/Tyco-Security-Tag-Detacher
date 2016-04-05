@@ -10,13 +10,13 @@ import Foundation
 import CoreBluetooth
 
 /* Services & Characteristics UUIDs */
-let BLEServiceUUID = CBUUID(string: "025A7775-49AA-42BD-BBDB-E2AE77782966")
-let PositionCharUUID = CBUUID(string: "F38A2C23-BC54-40FC-BED0-60EDDA139F47")
+let BLEServiceUUID = CBUUID(string: "713D0000-503E-4C75-BA94-3148F18D941E")
+let TXCharUUID = CBUUID(string: "713D0003-503E-4C75-BA94-3148F18D941E")
 let BLEServiceChangedStatusNotification = "kBLEServiceChangedStatusNotification"
 
 class BTService: NSObject, CBPeripheralDelegate {
   var peripheral: CBPeripheral?
-  var positionCharacteristic: CBCharacteristic?
+  var txCharacteristic: CBCharacteristic?
   
   init(initWithPeripheral peripheral: CBPeripheral) {
     super.init()
@@ -38,17 +38,16 @@ class BTService: NSObject, CBPeripheralDelegate {
       peripheral = nil
     }
     
-    // Deallocating therefore send notification
+    //deallocating. Therefore, send notification
     self.sendBTServiceNotificationWithIsBluetoothConnected(false)
   }
   
   // Mark: - CBPeripheralDelegate
-  
   func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
-    let uuidsForBTService: [CBUUID] = [PositionCharUUID]
+    let uuidsForBTService: [CBUUID] = [TXCharUUID]
     
     if (peripheral != self.peripheral) {
-      // Wrong Peripheral
+      //wrong Peripheral
       return
     }
     
@@ -57,7 +56,7 @@ class BTService: NSObject, CBPeripheralDelegate {
     }
     
     if ((peripheral.services == nil) || (peripheral.services!.count == 0)) {
-      // No Services
+      //no Services
       return
     }
     
@@ -70,7 +69,7 @@ class BTService: NSObject, CBPeripheralDelegate {
   
   func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
     if (peripheral != self.peripheral) {
-      // Wrong Peripheral
+      //wrong Peripheral
       return
     }
     
@@ -80,11 +79,11 @@ class BTService: NSObject, CBPeripheralDelegate {
     
     if let characteristics = service.characteristics {
       for characteristic in characteristics {
-        if characteristic.UUID == PositionCharUUID {
-          self.positionCharacteristic = (characteristic)
+        if characteristic.UUID == TXCharUUID {
+          self.txCharacteristic = (characteristic)
           peripheral.setNotifyValue(true, forCharacteristic: characteristic)
           
-          // Send notification that Bluetooth is connected and all required characteristics are discovered
+          //send notification that Bluetooth is connected and all required characteristics are discovered
           self.sendBTServiceNotificationWithIsBluetoothConnected(true)
         }
       }
@@ -92,14 +91,13 @@ class BTService: NSObject, CBPeripheralDelegate {
   }
   
   // Mark: - Private
-  
     func writeMessage(message: UInt8) {
-        // See if characteristic has been discovered before writing to it
-        if let positionCharacteristic = self.positionCharacteristic {
-            // Need a mutable var to pass to writeValue function
+        //see if characteristic has been discovered before writing to it
+        if let txCharacteristic = self.txCharacteristic {
+            //need a mutable var to pass to writeValue function
             var messageValue = message
             let data = NSData(bytes: &messageValue, length: sizeof(UInt8))
-            self.peripheral?.writeValue(data, forCharacteristic: positionCharacteristic, type: CBCharacteristicWriteType.WithResponse)
+            self.peripheral?.writeValue(data, forCharacteristic: txCharacteristic, type: CBCharacteristicWriteType.WithResponse)
         }
     }
   
