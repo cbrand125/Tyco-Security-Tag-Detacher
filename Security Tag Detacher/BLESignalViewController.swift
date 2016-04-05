@@ -13,10 +13,6 @@ class BLESignalViewController: UIViewController {
     var QRValue : String?
     @IBOutlet weak var QRLabel: UILabel!
     
-    var timerTXDelay: NSTimer?
-    var allowTX = true
-    var lastMessage: UInt8 = 255
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         QRLabel.text = QRValue
@@ -54,41 +50,10 @@ class BLESignalViewController: UIViewController {
     }
     
     func sendMessage(message: UInt8) {
-        if !allowTX {
-            return
-        }
-        
         //send message to Arduino
         if let bleService = btDiscoverySharedInstance.bleService {
             bleService.writeMessage(message)
-            
-            // Start delay timer
-            allowTX = false
-            if timerTXDelay == nil {
-                timerTXDelay = NSTimer.scheduledTimerWithTimeInterval(
-                    0.1,
-                    target: self,
-                    selector: #selector(BLESignalViewController.timerTXDelayElapsed),
-                    userInfo: nil,
-                    repeats: false)
-            }
         }
-    }
-    
-    func timerTXDelayElapsed() {
-        self.allowTX = true
-        self.stopTimerTXDelay()
-        
-        self.sendMessage(authorize())
-    }
-    
-    func stopTimerTXDelay() {
-        if self.timerTXDelay == nil {
-            return
-        }
-        
-        timerTXDelay?.invalidate()
-        self.timerTXDelay = nil
     }
     
 }

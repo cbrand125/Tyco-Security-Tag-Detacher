@@ -29,6 +29,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     override func viewWillAppear(animated: Bool) {
         QRMessageLabel.text = "No QR code is detected"
+        qrCodeFrameView?.frame = CGRectZero
         captureSession?.startRunning()
     }
     
