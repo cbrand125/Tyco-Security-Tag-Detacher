@@ -30,6 +30,7 @@
 		9AE5A0EF1CBB8B470033827C /* libCardIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE5A0EC1CBB8B470033827C /* libCardIO.a */; };
 		9AE5A0F01CBB8B470033827C /* libopencv_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE5A0ED1CBB8B470033827C /* libopencv_core.a */; };
 		9AE5A0F11CBB8B470033827C /* libopencv_imgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE5A0EE1CBB8B470033827C /* libopencv_imgproc.a */; };
+		9AE5A0F31CBB9F7D0033827C /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE5A0F21CBB9F7D0033827C /* SafariServices.framework */; };
 		ACA3E5881CA24DDC004E57DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3E5871CA24DDC004E57DB /* AppDelegate.swift */; };
 		ACA3E58A1CA24DDC004E57DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3E5891CA24DDC004E57DB /* ViewController.swift */; };
 		ACA3E58D1CA24DDC004E57DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA3E58B1CA24DDC004E57DB /* Main.storyboard */; };
@@ -96,6 +97,7 @@
 		9AE5A0EC1CBB8B470033827C /* libCardIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCardIO.a; sourceTree = "<group>"; };
 		9AE5A0ED1CBB8B470033827C /* libopencv_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopencv_core.a; sourceTree = "<group>"; };
 		9AE5A0EE1CBB8B470033827C /* libopencv_imgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopencv_imgproc.a; sourceTree = "<group>"; };
+		9AE5A0F21CBB9F7D0033827C /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		ACA3E5841CA24DDC004E57DB /* Security Tag Detacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Security Tag Detacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA3E5871CA24DDC004E57DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA3E5891CA24DDC004E57DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE5A0F31CBB9F7D0033827C /* SafariServices.framework in Frameworks */,
 				9AE5A0EF1CBB8B470033827C /* libCardIO.a in Frameworks */,
 				9AE5A0E21CBB7B970033827C /* Accelerate.framework in Frameworks */,
 				9AE5A0D91CBB7A1E0033827C /* CoreLocation.framework in Frameworks */,
@@ -190,6 +193,7 @@
 		ACA3E57B1CA24DDC004E57DB = {
 			isa = PBXGroup;
 			children = (
+				9AE5A0F21CBB9F7D0033827C /* SafariServices.framework */,
 				9AE5A0E11CBB7B970033827C /* Accelerate.framework */,
 				9AE5A0D81CBB7A1E0033827C /* CoreLocation.framework */,
 				9AE5A0D61CBB79EE0033827C /* libxml2.2.tbd */,

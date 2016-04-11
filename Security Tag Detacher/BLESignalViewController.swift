@@ -35,27 +35,37 @@ class BLESignalViewController: UIViewController, PayPalPaymentDelegate {
     func payPalPaymentViewController(paymentViewController: PayPalPaymentViewController, didCompletePayment completedPayment: PayPalPayment) {
         paymentViewController.dismissViewControllerAnimated(true, completion: { () -> Void in
             // send completed confirmation to your server
-            print("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
             if completedPayment.confirmation["response"]!["state"] as! String == "approved" {
                 if let userID = UIDevice.currentDevice().identifierForVendor {
                     self.model.setItemPurchaserIDForIdentifier(self.QRValue!, purchaser: userID.UUIDString)
+                    self.model.setItemPaymentIDForIdentifier(self.QRValue!,
+                        paymentID: completedPayment.confirmation["response"]!["id"] as! String)
+                    self.payPalButton.userInteractionEnabled = false
+                    self.payPalButton.alpha = 0.5
                 }
             }
         })
     }
     
+    @IBAction func demoButtonPressed(sender: UIButton) {
+        model.reset()
+        payPalButton.userInteractionEnabled = true
+        payPalButton.alpha = 1.0
+    }
+    
     @IBAction func payWithPayPalButtonPressed(sender: UIButton) {
-        let item1 = PayPalItem(name: model.getItemNameForIdentifier(QRValue!)!, withQuantity: 1, withPrice: NSDecimalNumber(string: "9.99"), withCurrency: "USD", withSku: QRValue!)
-        let items = [item1]
-        let total = PayPalItem.totalPriceForItems(items)
-        let paymentDetails = PayPalPaymentDetails(subtotal: total, withShipping: nil, withTax: nil)
-        
-        let payment = PayPalPayment(amount: total, currencyCode: "USD", shortDescription: "Orange Shirt", intent: .Sale)
-        payment.items = items
-        payment.paymentDetails = paymentDetails
+        let payment = PayPalPayment(
+            amount: model.getItemPriceForIdentifier(QRValue!)!,
+            currencyCode: "USD",
+            shortDescription: model.getItemNameForIdentifier(QRValue!)!,
+            intent: .Sale
+        )
         
         if (payment.processable) {
-            let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: payPalConfig, delegate: self)
+            let paymentViewController = PayPalPaymentViewController(payment: payment,
+                                                                    configuration: payPalConfig,
+                                                                    delegate: self
+            )
             presentViewController(paymentViewController!, animated: true, completion: nil)
         }
         else {
@@ -67,6 +77,14 @@ class BLESignalViewController: UIViewController, PayPalPaymentDelegate {
         super.viewWillAppear(animated)
         PayPalMobile.initializeWithClientIdsForEnvironments(clientIDs)
         PayPalMobile.preconnectWithEnvironment(environment)
+        
+        if UIDevice.currentDevice().identifierForVendor?.UUIDString == model.getItemPurchaserIDForIdentifier(QRValue!) {
+            payPalButton.userInteractionEnabled = false
+            payPalButton.alpha = 0.5
+        } else {
+            payPalButton.userInteractionEnabled = true
+            payPalButton.alpha = 1.0
+        }
     }
     
     override func viewDidLoad() {

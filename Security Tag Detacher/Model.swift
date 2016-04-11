@@ -35,10 +35,12 @@ class Model {
         } else {
             allItems = [
                 "ABC123":[
-                    "Item Name":"Shirt",
-                    "Item Description":"This item is a lovely orange medium size unisex T-shirt.",
-                    "Item Picture Link":"http://www.customink.com/assets/site_content/products/530x542/unisex/orange-cb68a219e2b35bad123a229afac8c110.jpg",
+                    "Name":"Shirt",
+                    "Description":"This item is a lovely orange medium size unisex T-shirt.",
+                    "Picture Link":"http://www.customink.com/assets/site_content/products/530x542/unisex/orange-cb68a219e2b35bad123a229afac8c110.jpg",
+                    "Price":"9.99",
                     "Purchaser":"Unknown",
+                    "Payment ID":"Unknown",
                     "Authorization Code":10
                 ]
             ]
@@ -48,7 +50,7 @@ class Model {
     func getItemNameForIdentifier(identifier: String) -> String? {
         if let items = allItems {
             if let item = items[identifier] {
-                if let name = item["Item Name"] {
+                if let name = item["Name"] {
                     if let nameString = name as? String {
                         return nameString
                     }
@@ -62,7 +64,7 @@ class Model {
     func getItemDescriptionForIdentifier(identifier: String) -> String? {
         if let items = allItems {
             if let item = items[identifier] {
-                if let description = item["Item Description"] {
+                if let description = item["Description"] {
                     if let descriptionString = description as? String {
                         return descriptionString
                     }
@@ -76,10 +78,22 @@ class Model {
     func getItemPictureLinkForIdentifier(identifier: String) -> String? {
         if let items = allItems {
             if let item = items[identifier] {
-                if let link = item["Item Picture Link"] {
+                if let link = item["Picture Link"] {
                     if let linkString = link as? String {
                         return linkString
                     }
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    func getItemPriceForIdentifier(identifier: String) -> NSDecimalNumber? {
+        if let items = allItems {
+            if let item = items[identifier] {
+                if let price = item["Price"] as? String {
+                    return NSDecimalNumber(string: price)
                 }
             }
         }
@@ -110,6 +124,29 @@ class Model {
         }
     }
     
+    func getItemPaymentIDForIdentifier(identifier: String) -> String? {
+        if let items = allItems {
+            if let item = items[identifier] {
+                if let paymentID = item["Payment ID"] {
+                    if let paymentIDString = paymentID as? String {
+                        return paymentIDString
+                    }
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    func setItemPaymentIDForIdentifier(identifier: String, paymentID: String) {
+        if let items = allItems {
+            if items[identifier] != nil {
+                allItems![identifier]!["Payment ID"] = paymentID
+                saveJSON()
+            }
+        }
+    }
+    
     func getItemAuthorizationCodeForIdentifier(identifier: String) -> UInt8? {
         if let userID = UIDevice.currentDevice().identifierForVendor {
             if let purchaserID = getItemPurchaserIDForIdentifier(identifier) {
@@ -130,6 +167,22 @@ class Model {
         return nil
     }
     
+    func reset() {
+        allItems = [
+            "ABC123":[
+                "Name":"Shirt",
+                "Description":"This item is a lovely orange medium size unisex T-shirt.",
+                "Picture Link":"http://www.customink.com/assets/site_content/products/530x542/unisex/orange-cb68a219e2b35bad123a229afac8c110.jpg",
+                "Price":"9.99",
+                "Purchaser":"Unknown",
+                "Payment ID":"Unknown",
+                "Authorization Code":10
+            ]
+        ]
+        
+        saveJSON()
+    }
+
     func saveJSON() {
         do {
             if let data = allItems {
