@@ -38,8 +38,8 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        QRMessageLabel.text = "ABC123"
-        performSegueWithIdentifier("BLESignallerSegue", sender: self)
+        //QRMessageLabel.text = "ABC123"
+        //performSegueWithIdentifier("BLESignallerSegue", sender: self)
         
         //Set up the video recording
         let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
