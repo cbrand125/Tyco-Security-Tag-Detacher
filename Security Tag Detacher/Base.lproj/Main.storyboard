@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -77,14 +78,37 @@
                                     <action selector="detachButtonAction:" destination="yDm-9L-Mls" eventType="touchUpInside" id="EDK-Ue-fgb"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="We3-Ji-qBb">
+                                <rect key="frame" x="150" y="79" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="We3-Ji-qBb" secondAttribute="height" multiplier="1:1" id="jhb-PD-fPv"/>
+                                    <constraint firstAttribute="height" constant="300" id="zBd-Xr-tXx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6W-46-y6T">
+                                <rect key="frame" x="20" y="387" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="We3-Ji-qBb" firstAttribute="top" secondItem="HGF-9d-amj" secondAttribute="bottom" constant="15" id="8yj-si-Ynu"/>
+                            <constraint firstItem="i6W-46-y6T" firstAttribute="centerX" secondItem="QYA-TD-x93" secondAttribute="centerX" id="CQt-FV-Gzw"/>
+                            <constraint firstItem="i6W-46-y6T" firstAttribute="leading" secondItem="QYA-TD-x93" secondAttribute="leading" constant="20" id="RpC-x0-1Zt"/>
+                            <constraint firstItem="We3-Ji-qBb" firstAttribute="centerX" secondItem="QYA-TD-x93" secondAttribute="centerX" id="VNP-bJ-nYL"/>
                             <constraint firstItem="IZh-3k-fbF" firstAttribute="top" secondItem="iQT-38-Dyw" secondAttribute="bottom" constant="15" id="YSf-Ww-MOh"/>
                             <constraint firstItem="iQT-38-Dyw" firstAttribute="centerX" secondItem="QYA-TD-x93" secondAttribute="centerX" id="iQ7-Xn-mcC"/>
+                            <constraint firstAttribute="trailing" secondItem="i6W-46-y6T" secondAttribute="trailing" constant="20" id="obY-pJ-HqA"/>
+                            <constraint firstItem="i6W-46-y6T" firstAttribute="top" secondItem="We3-Ji-qBb" secondAttribute="bottom" constant="8" id="sVA-vr-9Ks"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="X2b-l7-saI"/>
+                    <connections>
+                        <outlet property="itemDescription" destination="i6W-46-y6T" id="x6i-NA-7JB"/>
+                        <outlet property="itemImage" destination="We3-Ji-qBb" id="CmV-o5-gXN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixd-u4-c31" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

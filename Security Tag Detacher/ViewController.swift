@@ -38,6 +38,9 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        QRMessageLabel.text = "ABC123"
+        performSegueWithIdentifier("BLESignallerSegue", sender: self)
+        
         //Set up the video recording
         let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         do {
@@ -70,17 +73,6 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         qrCodeFrameView?.layer.borderWidth = 2
         view.addSubview(qrCodeFrameView!)
         view.bringSubviewToFront(qrCodeFrameView!)
-        
-        //Testing
-        print(Model.sharedInstance.getItemPurchaserIDForIdentifier("ABC123")!)
-        Model.sharedInstance.setItemPurchaserIDForIdentifier("ABC123", purchaser: (UIDevice.currentDevice().identifierForVendor?.UUIDString)!)
-        print(Model.sharedInstance.getItemNameForIdentifier("ABC123")!)
-        print(Model.sharedInstance.getItemDescriptionForIdentifier("ABC123")!)
-        print(Model.sharedInstance.getItemPictureLinkForIdentifier("ABC123")!)
-        print(Model.sharedInstance.getItemPurchaserIDForIdentifier("ABC123")!)
-        if let authCode = Model.sharedInstance.getItemAuthorizationCodeForIdentifier("ABC123") {
-            print(authCode)
-        }
     }
 
     override func didReceiveMemoryWarning() {

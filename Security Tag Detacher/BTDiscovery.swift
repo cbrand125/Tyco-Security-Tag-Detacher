@@ -15,12 +15,17 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
     
     private var centralManager: CBCentralManager?
     private var peripheralBLE: CBPeripheral?
+    private var identifier : String?
     
     override init() {
         super.init()
         
         let centralQueue = dispatch_queue_create("com.me440w.tyco", DISPATCH_QUEUE_SERIAL)
         centralManager = CBCentralManager(delegate: self, queue: centralQueue)
+    }
+    
+    func setID(id : String) {
+        identifier = id
     }
     
     func startScanning() {
@@ -50,6 +55,12 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
         // Validate peripheral information
         if ((peripheral.name == nil) || (peripheral.name == "")) {
             return
+        }
+        // Should only connect to expected tag with QR code ID
+        if let id = identifier {
+            if peripheral.name!.rangeOfString(id) == nil {
+                return
+            }
         }
         
         // If not already connected to a peripheral, then connect to this one

@@ -11,24 +11,42 @@ import UIKit
 class BLESignalViewController: UIViewController {
     
     var QRValue : String?
+    let model = Model.sharedInstance
     
-    @IBOutlet weak var QRLabel: UILabel!
+    @IBOutlet weak var itemImage: UIImageView!
+    @IBOutlet weak var itemDescription: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        QRLabel.text = QRValue
-        navigationItem.title = QRValue
+        navigationItem.title = model.getItemNameForIdentifier(QRValue!)
+        itemDescription.text = model.getItemDescriptionForIdentifier(QRValue!)
+        itemImage.downloadedFrom(link: model.getItemPictureLinkForIdentifier(QRValue!)!, contentMode: UIViewContentMode.ScaleAspectFit)
+        
         
         //watch Bluetooth connection
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BLESignalViewController.connectionChanged(_:)), name: BLEServiceChangedStatusNotification, object: nil)
         
         //start the Bluetooth discovery process
+        btDiscoverySharedInstance.setID(QRValue!)
         btDiscoverySharedInstance.startScanning()
     }
     
     func authorize() -> UInt8 {
-        //normally, this will check database/JSON file for permission on QR code
-        return UInt8(10)
+        if let userID = UIDevice.currentDevice().identifierForVendor {
+            if let purchaserID = model.getItemPurchaserIDForIdentifier(QRValue!) {
+                if purchaserID == userID.UUIDString {
+                    if let authCode = model.getItemAuthorizationCodeForIdentifier(QRValue!) {
+                        return authCode
+                    }
+                }
+            }
+        }
+        
+        let alert = UIAlertController(title: "Authorization Failed", message: "You are not the purchaser for this item.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        return UInt8(0)
     }
     
     deinit {
@@ -36,6 +54,10 @@ class BLESignalViewController: UIViewController {
     }
     
     @IBAction func detachButtonAction(sender: UIButton) {
+        //for now, we assume the item has been purchased already always
+        if let userID = UIDevice.currentDevice().identifierForVendor {
+            model.setItemPurchaserIDForIdentifier(QRValue!, purchaser: userID.UUIDString)
+        }
         sendMessage(authorize())
     }
     
