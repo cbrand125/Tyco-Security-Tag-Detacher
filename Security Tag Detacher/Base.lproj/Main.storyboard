@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="234" y="397"/>
         </scene>
-        <!--Signal View Controller-->
+        <!--Title-->
         <scene sceneID="G32-25-8Qw">
             <objects>
                 <viewController storyboardIdentifier="BLESignaller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yDm-9L-Mls" customClass="BLESignalViewController" customModule="Security_Tag_Detacher" sceneMemberID="viewController">
@@ -70,12 +70,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4f-DX-56R">
-                                <rect key="frame" x="279" y="290" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQT-38-Dyw">
                                 <rect key="frame" x="275" y="555" width="50" height="30"/>
                                 <state key="normal" title="Detach"/>
@@ -86,15 +80,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="y4f-DX-56R" firstAttribute="centerY" secondItem="QYA-TD-x93" secondAttribute="centerY" id="TaJ-qr-FIC"/>
                             <constraint firstItem="IZh-3k-fbF" firstAttribute="top" secondItem="iQT-38-Dyw" secondAttribute="bottom" constant="15" id="YSf-Ww-MOh"/>
-                            <constraint firstItem="y4f-DX-56R" firstAttribute="centerX" secondItem="QYA-TD-x93" secondAttribute="centerX" id="hyd-fr-xz5"/>
                             <constraint firstItem="iQT-38-Dyw" firstAttribute="centerX" secondItem="QYA-TD-x93" secondAttribute="centerX" id="iQ7-Xn-mcC"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="QRLabel" destination="y4f-DX-56R" id="VEI-MQ-B8L"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Title" id="X2b-l7-saI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixd-u4-c31" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

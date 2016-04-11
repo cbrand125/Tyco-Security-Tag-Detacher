@@ -10,6 +10,9 @@
 		9A8BD1411CAA3BD4005ADD3D /* BLESignalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8BD1401CAA3BD4005ADD3D /* BLESignalViewController.swift */; };
 		9A8BD1441CAA4AAD005ADD3D /* BTDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8BD1421CAA4AAC005ADD3D /* BTDiscovery.swift */; };
 		9A8BD1451CAA4AAD005ADD3D /* BTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8BD1431CAA4AAD005ADD3D /* BTService.swift */; };
+		9ACE99D41CBB164600601654 /* document.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ACE99D31CBB164600601654 /* document.json */; };
+		9ACE99D61CBB167900601654 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE99D51CBB167900601654 /* Model.swift */; };
+		9ACE99D81CBB22BC00601654 /* UIImageView+imageFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE99D71CBB22BC00601654 /* UIImageView+imageFromUrl.swift */; };
 		ACA3E5881CA24DDC004E57DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3E5871CA24DDC004E57DB /* AppDelegate.swift */; };
 		ACA3E58A1CA24DDC004E57DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3E5891CA24DDC004E57DB /* ViewController.swift */; };
 		ACA3E58D1CA24DDC004E57DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA3E58B1CA24DDC004E57DB /* Main.storyboard */; };
@@ -40,6 +43,9 @@
 		9A8BD1401CAA3BD4005ADD3D /* BLESignalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLESignalViewController.swift; sourceTree = "<group>"; };
 		9A8BD1421CAA4AAC005ADD3D /* BTDiscovery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTDiscovery.swift; sourceTree = "<group>"; };
 		9A8BD1431CAA4AAD005ADD3D /* BTService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTService.swift; sourceTree = "<group>"; };
+		9ACE99D31CBB164600601654 /* document.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = document.json; sourceTree = "<group>"; };
+		9ACE99D51CBB167900601654 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		9ACE99D71CBB22BC00601654 /* UIImageView+imageFromUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+imageFromUrl.swift"; sourceTree = "<group>"; };
 		ACA3E5841CA24DDC004E57DB /* Security Tag Detacher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Security Tag Detacher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA3E5871CA24DDC004E57DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACA3E5891CA24DDC004E57DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 		ACA3E5861CA24DDC004E57DB /* Security Tag Detacher */ = {
 			isa = PBXGroup;
 			children = (
+				9ACE99D71CBB22BC00601654 /* UIImageView+imageFromUrl.swift */,
 				ACA3E5871CA24DDC004E57DB /* AppDelegate.swift */,
 				ACA3E5891CA24DDC004E57DB /* ViewController.swift */,
 				ACA3E58B1CA24DDC004E57DB /* Main.storyboard */,
@@ -112,6 +119,8 @@
 				9A8BD1421CAA4AAC005ADD3D /* BTDiscovery.swift */,
 				9A8BD1431CAA4AAD005ADD3D /* BTService.swift */,
 				9A8BD1401CAA3BD4005ADD3D /* BLESignalViewController.swift */,
+				9ACE99D31CBB164600601654 /* document.json */,
+				9ACE99D51CBB167900601654 /* Model.swift */,
 			);
 			path = "Security Tag Detacher";
 			sourceTree = "<group>";
@@ -239,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ACE99D41CBB164600601654 /* document.json in Resources */,
 				ACA3E5921CA24DDC004E57DB /* LaunchScreen.storyboard in Resources */,
 				ACA3E58F1CA24DDC004E57DB /* Assets.xcassets in Resources */,
 				ACA3E58D1CA24DDC004E57DB /* Main.storyboard in Resources */,
@@ -269,8 +279,10 @@
 				ACA3E58A1CA24DDC004E57DB /* ViewController.swift in Sources */,
 				9A8BD1411CAA3BD4005ADD3D /* BLESignalViewController.swift in Sources */,
 				9A8BD1451CAA4AAD005ADD3D /* BTService.swift in Sources */,
+				9ACE99D61CBB167900601654 /* Model.swift in Sources */,
 				9A8BD1441CAA4AAD005ADD3D /* BTDiscovery.swift in Sources */,
 				ACA3E5881CA24DDC004E57DB /* AppDelegate.swift in Sources */,
+				9ACE99D81CBB22BC00601654 /* UIImageView+imageFromUrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +429,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Security Tag Detacher/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.me440w.tyco.Security-Tag-Detacher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,7 +444,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Security Tag Detacher/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.me440w.tyco.Security-Tag-Detacher";
 				PRODUCT_NAME = "$(TARGET_NAME)";
