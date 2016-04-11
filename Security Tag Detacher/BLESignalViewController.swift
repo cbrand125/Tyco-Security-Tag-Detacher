@@ -8,13 +8,66 @@
 
 import UIKit
 
-class BLESignalViewController: UIViewController {
+class BLESignalViewController: UIViewController, PayPalPaymentDelegate {
     
     var QRValue : String?
     let model = Model.sharedInstance
+    let payPalConfig = PayPalConfiguration()
+    let clientIDs = [PayPalEnvironmentSandbox : "ATLorItFFcLMhqv28SBRJwVCAv3xfxOWmLvHN5pGq2n9E2U-LUPwsN646ba8gtELfh4E6dmKK06aN1j0"]
+    var environment:String = PayPalEnvironmentSandbox {
+        willSet(newEnvironment) {
+            if (newEnvironment != environment) {
+                PayPalMobile.initializeWithClientIdsForEnvironments(clientIDs)
+                PayPalMobile.preconnectWithEnvironment(newEnvironment)
+            }
+        }
+    }
     
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemDescription: UILabel!
+    @IBOutlet weak var payPalButton: UIButton!
+    
+    //PayPalPaymentDelegate
+    func payPalPaymentDidCancel(paymentViewController: PayPalPaymentViewController) {
+        paymentViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func payPalPaymentViewController(paymentViewController: PayPalPaymentViewController, didCompletePayment completedPayment: PayPalPayment) {
+        paymentViewController.dismissViewControllerAnimated(true, completion: { () -> Void in
+            // send completed confirmation to your server
+            print("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
+            if completedPayment.confirmation["response"]!["state"] as! String == "approved" {
+                if let userID = UIDevice.currentDevice().identifierForVendor {
+                    self.model.setItemPurchaserIDForIdentifier(self.QRValue!, purchaser: userID.UUIDString)
+                }
+            }
+        })
+    }
+    
+    @IBAction func payWithPayPalButtonPressed(sender: UIButton) {
+        let item1 = PayPalItem(name: model.getItemNameForIdentifier(QRValue!)!, withQuantity: 1, withPrice: NSDecimalNumber(string: "9.99"), withCurrency: "USD", withSku: QRValue!)
+        let items = [item1]
+        let total = PayPalItem.totalPriceForItems(items)
+        let paymentDetails = PayPalPaymentDetails(subtotal: total, withShipping: nil, withTax: nil)
+        
+        let payment = PayPalPayment(amount: total, currencyCode: "USD", shortDescription: "Orange Shirt", intent: .Sale)
+        payment.items = items
+        payment.paymentDetails = paymentDetails
+        
+        if (payment.processable) {
+            let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: payPalConfig, delegate: self)
+            presentViewController(paymentViewController!, animated: true, completion: nil)
+        }
+        else {
+            print("Payment not processable: \(payment)")
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        PayPalMobile.initializeWithClientIdsForEnvironments(clientIDs)
+        PayPalMobile.preconnectWithEnvironment(environment)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +75,20 @@ class BLESignalViewController: UIViewController {
         itemDescription.text = model.getItemDescriptionForIdentifier(QRValue!)
         itemImage.downloadedFrom(link: model.getItemPictureLinkForIdentifier(QRValue!)!, contentMode: UIViewContentMode.ScaleAspectFit)
         
-        
         //watch Bluetooth connection
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BLESignalViewController.connectionChanged(_:)), name: BLEServiceChangedStatusNotification, object: nil)
         
         //start the Bluetooth discovery process
         btDiscoverySharedInstance.setID(QRValue!)
         btDiscoverySharedInstance.startScanning()
+        
+        // Set up payPalConfig
+        payPalConfig.acceptCreditCards = true
+        payPalConfig.merchantName = "M E 440W Tyco Group"
+        payPalConfig.merchantPrivacyPolicyURL = NSURL(string: "https://www.paypal.com/webapps/mpp/ua/privacy-full")
+        payPalConfig.merchantUserAgreementURL = NSURL(string: "https://www.paypal.com/webapps/mpp/ua/useragreement-full")
+        payPalConfig.languageOrLocale = NSLocale.preferredLanguages()[0]
+        payPalConfig.payPalShippingAddressOption = .PayPal;
     }
     
     func authorize() -> UInt8 {
@@ -54,10 +114,6 @@ class BLESignalViewController: UIViewController {
     }
     
     @IBAction func detachButtonAction(sender: UIButton) {
-        //for now, we assume the item has been purchased already always
-        if let userID = UIDevice.currentDevice().identifierForVendor {
-            model.setItemPurchaserIDForIdentifier(QRValue!, purchaser: userID.UUIDString)
-        }
         sendMessage(authorize())
     }
     

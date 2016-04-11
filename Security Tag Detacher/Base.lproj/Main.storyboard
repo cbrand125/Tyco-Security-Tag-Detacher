@@ -88,9 +88,16 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6W-46-y6T">
                                 <rect key="frame" x="20" y="387" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9D3-e7-h0B">
+                                <rect key="frame" x="277" y="517" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="payWithPayPalButtonPressed:" destination="yDm-9L-Mls" eventType="touchUpInside" id="LDg-yX-7Pb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -98,7 +105,9 @@
                             <constraint firstItem="i6W-46-y6T" firstAttribute="centerX" secondItem="QYA-TD-x93" secondAttribute="centerX" id="CQt-FV-Gzw"/>
                             <constraint firstItem="i6W-46-y6T" firstAttribute="leading" secondItem="QYA-TD-x93" secondAttribute="leading" constant="20" id="RpC-x0-1Zt"/>
                             <constraint firstItem="We3-Ji-qBb" firstAttribute="centerX" secondItem="QYA-TD-x93" secondAttribute="centerX" id="VNP-bJ-nYL"/>
+                            <constraint firstItem="iQT-38-Dyw" firstAttribute="top" secondItem="9D3-e7-h0B" secondAttribute="bottom" constant="8" id="VwE-HA-V53"/>
                             <constraint firstItem="IZh-3k-fbF" firstAttribute="top" secondItem="iQT-38-Dyw" secondAttribute="bottom" constant="15" id="YSf-Ww-MOh"/>
+                            <constraint firstItem="9D3-e7-h0B" firstAttribute="centerX" secondItem="QYA-TD-x93" secondAttribute="centerX" id="ghK-42-Gea"/>
                             <constraint firstItem="iQT-38-Dyw" firstAttribute="centerX" secondItem="QYA-TD-x93" secondAttribute="centerX" id="iQ7-Xn-mcC"/>
                             <constraint firstAttribute="trailing" secondItem="i6W-46-y6T" secondAttribute="trailing" constant="20" id="obY-pJ-HqA"/>
                             <constraint firstItem="i6W-46-y6T" firstAttribute="top" secondItem="We3-Ji-qBb" secondAttribute="bottom" constant="8" id="sVA-vr-9Ks"/>
@@ -108,6 +117,7 @@
                     <connections>
                         <outlet property="itemDescription" destination="i6W-46-y6T" id="x6i-NA-7JB"/>
                         <outlet property="itemImage" destination="We3-Ji-qBb" id="CmV-o5-gXN"/>
+                        <outlet property="payPalButton" destination="9D3-e7-h0B" id="fee-Oa-vMs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixd-u4-c31" userLabel="First Responder" sceneMemberID="firstResponder"/>
