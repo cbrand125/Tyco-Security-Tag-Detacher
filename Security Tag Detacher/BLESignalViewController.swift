@@ -8,7 +8,14 @@
 
 import UIKit
 
-class BLESignalViewController: UIViewController, PayPalPaymentDelegate {
+protocol BLESignalViewControllerDelegate {
+    func activateDetachButton()
+    func deactivateDetachButton()
+    func detachButtonConnectingStatus()
+    func detachButtonConnectedStatus()
+}
+
+class BLESignalViewController: UIViewController, PayPalPaymentDelegate, BLESignalViewControllerDelegate {
     
     var QRValue : String?
     let model = Model.sharedInstance
@@ -26,6 +33,7 @@ class BLESignalViewController: UIViewController, PayPalPaymentDelegate {
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var payPalButton: UIButton!
+    @IBOutlet weak var detachButton: UIButton!
     
     //PayPalPaymentDelegate
     func payPalPaymentDidCancel(paymentViewController: PayPalPaymentViewController) {
@@ -97,6 +105,7 @@ class BLESignalViewController: UIViewController, PayPalPaymentDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BLESignalViewController.connectionChanged(_:)), name: BLEServiceChangedStatusNotification, object: nil)
         
         //start the Bluetooth discovery process
+        //btDiscoverySharedInstance.delegate = self.navigationController?.visibleViewController as? BLESignalViewControllerDelegate
         btDiscoverySharedInstance.setID(QRValue!)
         btDiscoverySharedInstance.startScanning()
         
@@ -152,6 +161,25 @@ class BLESignalViewController: UIViewController, PayPalPaymentDelegate {
         if let bleService = btDiscoverySharedInstance.bleService {
             bleService.writeMessage(message)
         }
+    }
+    
+    //BLESignalViewControllerDelegate
+    func activateDetachButton() {
+        detachButton.userInteractionEnabled = true
+        detachButton.alpha = 1.0
+    }
+    
+    func deactivateDetachButton() {
+        detachButton.userInteractionEnabled = false
+        detachButton.alpha = 0.5
+    }
+    
+    func detachButtonConnectingStatus() {
+        detachButton.setTitle("Connecting...", forState: .Normal)
+    }
+    
+    func detachButtonConnectedStatus() {
+        detachButton.setTitle("Detach", forState: .Normal)
     }
     
 }

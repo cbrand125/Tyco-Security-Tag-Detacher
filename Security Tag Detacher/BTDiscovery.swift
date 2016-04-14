@@ -94,6 +94,7 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
         if (peripheral == self.peripheralBLE) {
             self.bleService = nil
             self.peripheralBLE = nil
+            self.identifier = nil
         }
         
         // Start scanning for new devices
