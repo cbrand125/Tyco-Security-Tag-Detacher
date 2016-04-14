@@ -15,8 +15,7 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
     
     private var centralManager: CBCentralManager?
     private var peripheralBLE: CBPeripheral?
-    private var identifier : String?
-    private var reconnectCount : Int = 0
+    private var identifier : String? = nil
     
     override init() {
         super.init()
@@ -57,12 +56,6 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
         if ((peripheral.name == nil) || (peripheral.name == "")) {
             return
         }
-        // Should only connect to expected tag with QR code ID
-        if let id = identifier {
-            if peripheral.name!.rangeOfString(id) == nil {
-                return
-            }
-        }
         
         // If not already connected to a peripheral, then connect to this one
         if ((self.peripheralBLE == nil) || (self.peripheralBLE?.state == CBPeripheralState.Disconnected)) {
@@ -84,23 +77,23 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
             self.bleService = BTService(initWithPeripheral: peripheral)
         }
         
-        // Stop scanning for new devices
-        central.stopScan()
+        // Should only connect to expected tag with QR code ID
+        if let id = identifier {
+            if peripheral.name!.rangeOfString(id) == nil {
+                central.cancelPeripheralConnection(peripheral)
+            }
+        } else {
+            // Stop scanning for new devices
+            central.stopScan()
+        }
     }
     
     func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
         
-        if (reconnectCount < 10) {
-            central.connectPeripheral(peripheral, options: nil)
-            reconnectCount += 1
-            return
-        }
-        
         // See if it was our peripheral that disconnected
         if (peripheral == self.peripheralBLE) {
-            self.bleService = nil;
-            self.peripheralBLE = nil;
-            reconnectCount = 0
+            self.bleService = nil
+            self.peripheralBLE = nil
         }
         
         // Start scanning for new devices
@@ -115,7 +108,6 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
         self.bleService = nil
         self.peripheralBLE = nil
         self.identifier = nil
-        self.reconnectCount = 0
     }
     
     func centralManagerDidUpdateState(central: CBCentralManager) {
