@@ -16,6 +16,7 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
     private var centralManager: CBCentralManager?
     private var peripheralBLE: CBPeripheral?
     private var identifier : String?
+    private var reconnectCount : Int = 0
     
     override init() {
         super.init()
@@ -89,10 +90,17 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
     
     func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
         
+        if (reconnectCount < 10) {
+            central.connectPeripheral(peripheral, options: nil)
+            reconnectCount += 1
+            return
+        }
+        
         // See if it was our peripheral that disconnected
         if (peripheral == self.peripheralBLE) {
             self.bleService = nil;
             self.peripheralBLE = nil;
+            reconnectCount = 0
         }
         
         // Start scanning for new devices
@@ -106,6 +114,8 @@ class BTDiscovery: NSObject, CBCentralManagerDelegate {
         }
         self.bleService = nil
         self.peripheralBLE = nil
+        self.identifier = nil
+        self.reconnectCount = 0
     }
     
     func centralManagerDidUpdateState(central: CBCentralManager) {
