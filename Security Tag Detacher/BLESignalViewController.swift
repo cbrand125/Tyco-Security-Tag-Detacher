@@ -97,6 +97,10 @@ class BLESignalViewController: UIViewController, PayPalPaymentDelegate, BLESigna
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (model.doesItemForIdentifierExist(QRValue!)) {
+            navigationController?.popViewControllerAnimated(true)
+        }
+        
         navigationItem.title = model.getItemNameForIdentifier(QRValue!)
         itemDescription.text = model.getItemDescriptionForIdentifier(QRValue!)
         itemImage.downloadedFrom(link: model.getItemPictureLinkForIdentifier(QRValue!)!, contentMode: UIViewContentMode.ScaleAspectFit)

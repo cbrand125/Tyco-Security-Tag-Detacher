@@ -167,6 +167,16 @@ class Model {
         return nil
     }
     
+    func doesItemForIdentifierExist(identifier: String) -> Bool {
+        if let items = allItems {
+            if items[identifier] != nil {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
     func reset() {
         allItems = [
             "ABC123":[
