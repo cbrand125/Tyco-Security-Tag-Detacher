@@ -127,6 +127,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="X2b-l7-saI"/>
                     <connections>
+                        <outlet property="detachButton" destination="iQT-38-Dyw" id="ERV-Yz-s7E"/>
                         <outlet property="itemDescription" destination="i6W-46-y6T" id="x6i-NA-7JB"/>
                         <outlet property="itemImage" destination="We3-Ji-qBb" id="CmV-o5-gXN"/>
                         <outlet property="payPalButton" destination="9D3-e7-h0B" id="fee-Oa-vMs"/>

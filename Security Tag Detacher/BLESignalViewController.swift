@@ -83,33 +83,38 @@ class BLESignalViewController: UIViewController, PayPalPaymentDelegate, BLESigna
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        //btDiscoverySharedInstance.delegate = self.navigationController?.visibleViewController as? BLESignalViewControllerDelegate
         PayPalMobile.initializeWithClientIdsForEnvironments(clientIDs)
         PayPalMobile.preconnectWithEnvironment(environment)
         
-        if UIDevice.currentDevice().identifierForVendor?.UUIDString == model.getItemPurchaserIDForIdentifier(QRValue!) {
-            payPalButton.userInteractionEnabled = false
-            payPalButton.alpha = 0.5
-        } else {
-            payPalButton.userInteractionEnabled = true
-            payPalButton.alpha = 1.0
+        deactivateDetachButton()
+        detachButtonConnectingStatus()
+        payPalButton.userInteractionEnabled = false
+        payPalButton.alpha = 0.5
+        navigationItem.title = "No Item Found"
+        
+        if model.doesItemForIdentifierExist(QRValue!) {
+            navigationItem.title = model.getItemNameForIdentifier(QRValue!)
+            itemDescription.text = model.getItemDescriptionForIdentifier(QRValue!)
+            itemImage.downloadedFrom(link: model.getItemPictureLinkForIdentifier(QRValue!)!, contentMode: UIViewContentMode.ScaleAspectFit)
+            
+            if UIDevice.currentDevice().identifierForVendor?.UUIDString == model.getItemPurchaserIDForIdentifier(QRValue!) {
+                payPalButton.userInteractionEnabled = false
+                payPalButton.alpha = 0.5
+            } else {
+                payPalButton.userInteractionEnabled = true
+                payPalButton.alpha = 1.0
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (model.doesItemForIdentifierExist(QRValue!)) {
-            navigationController?.popViewControllerAnimated(true)
-        }
-        
-        navigationItem.title = model.getItemNameForIdentifier(QRValue!)
-        itemDescription.text = model.getItemDescriptionForIdentifier(QRValue!)
-        itemImage.downloadedFrom(link: model.getItemPictureLinkForIdentifier(QRValue!)!, contentMode: UIViewContentMode.ScaleAspectFit)
         
         //watch Bluetooth connection
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BLESignalViewController.connectionChanged(_:)), name: BLEServiceChangedStatusNotification, object: nil)
         
         //start the Bluetooth discovery process
-        //btDiscoverySharedInstance.delegate = self.navigationController?.visibleViewController as? BLESignalViewControllerDelegate
         btDiscoverySharedInstance.setID(QRValue!)
         btDiscoverySharedInstance.startScanning()
         
@@ -155,6 +160,8 @@ class BLESignalViewController: UIViewController, PayPalPaymentDelegate, BLESigna
         dispatch_async(dispatch_get_main_queue(), {
             if let isConnected: Bool = userInfo["isConnected"] {
                 if isConnected {
+                    self.activateDetachButton()
+                    self.detachButtonConnectedStatus()
                 }
             }
         });
