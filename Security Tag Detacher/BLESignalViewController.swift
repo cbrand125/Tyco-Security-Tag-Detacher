@@ -87,8 +87,8 @@ class BLESignalViewController: UIViewController, PayPalPaymentDelegate, BLESigna
         PayPalMobile.initializeWithClientIdsForEnvironments(clientIDs)
         PayPalMobile.preconnectWithEnvironment(environment)
         
-        deactivateDetachButton()
-        detachButtonConnectingStatus()
+        //deactivateDetachButton()
+        //detachButtonConnectingStatus()
         payPalButton.userInteractionEnabled = false
         payPalButton.alpha = 0.5
         navigationItem.title = "No Item Found"
@@ -160,8 +160,8 @@ class BLESignalViewController: UIViewController, PayPalPaymentDelegate, BLESigna
         dispatch_async(dispatch_get_main_queue(), {
             if let isConnected: Bool = userInfo["isConnected"] {
                 if isConnected {
-                    self.activateDetachButton()
-                    self.detachButtonConnectedStatus()
+                    //self.activateDetachButton()
+                    //self.detachButtonConnectedStatus()
                 }
             }
         });
